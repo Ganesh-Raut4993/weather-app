@@ -14,12 +14,12 @@ const WeatherCard: React.FC<WeatherCardProps> = ({
   icon,
 }) => {
   const iconUrl = `https://openweathermap.org/img/wn/${icon}@2x.png`;
-
+  const weatherCondition = condition === 'Clear' ? 'Sunny' : 'Cloudy';
   return (
     <View style={styles.card}>
       <Text style={styles.cityName}>{cityName}</Text>
       <Text style={styles.temperature}>{temperature}°C</Text>
-      <Text style={styles.condition}>{condition}</Text>
+      <Text style={styles.condition}>{weatherCondition}</Text>
       <Image
         resizeMode="contain"
         style={styles.icon}

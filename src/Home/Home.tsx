@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import {
-  Image,
   Keyboard,
   StyleSheet,
   Text,
@@ -39,13 +38,23 @@ const Home: React.FC = () => {
 
   // Handle Search
   const handleSearch = async () => {
+    Keyboard.dismiss();
     if (!city.trim()) return;
     dispatch(setLoading(true));
     dispatch(setError(null));
 
     try {
       const weatherData = await fetchWeatherData(city);
-      dispatch(setWeatherData(weatherData));
+
+      const serializableWeatherData = {
+        cityName: weatherData.name, // City name
+        temperature: weatherData.main.temp, // Current temperature
+        weather: weatherData.weather[0].main, // Weather condition (e.g., 'Cloudy','clear)
+        icon: weatherData.weather[0].icon, // Icon for weather condition
+      };
+
+      dispatch(setWeatherData(serializableWeatherData));
+
       dispatch(setLastSearchedCity(city));
     } catch (err: any) {
       dispatch(setError(err.message || 'City not found'));
@@ -93,10 +102,10 @@ const Home: React.FC = () => {
 
         {data && !error ? (
           <WeatherCard
-            cityName={data.name}
-            temperature={data.main.temp}
-            condition={data.weather[0].main === 'Clear' ? 'Sunny' : 'Cloudy'}
-            icon={data.weather[0].icon}
+            cityName={data.cityName}
+            temperature={data.temperature}
+            condition={data.weather}
+            icon={data.icon}
           />
         ) : null}
       </View>

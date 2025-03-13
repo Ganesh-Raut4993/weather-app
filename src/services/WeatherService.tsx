@@ -1,4 +1,5 @@
 import Config from '../../config';
+import {serializer} from '../../metro.config';
 
 const BASE_URL = Config.BASE_URL;
 const API_KEY = Config.API_KEY;

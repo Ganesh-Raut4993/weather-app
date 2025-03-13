@@ -13,7 +13,7 @@ const AppNavigator: React.FC = () => {
         screenOptions={{
           headerTitleAlign: 'center',
         }}>
-        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Home" component={Home} options={{title: 'Home'}} />
       </Stack.Navigator>
     </NavigationContainer>
   );
