@@ -1,5 +1,26 @@
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
+Features ✨
+City Search: Users can enter a city name to fetch weather details.
+
+Weather Details: Displays:
+
+City Name
+
+Current Temperature (°C)
+
+Weather Condition (e.g., "Cloudy", "Sunny")
+
+Weather Icon (from OpenWeatherMap)
+
+Error Handling: Displays an error message if the city is not found or there's a network issue.
+
+Loading: A Text with "Loading..." text for better user experience during API calls.
+
+Responsive UI: Clean and user-friendly interface.
+
+State Management: Centralized state management with Redux Toolkit.
+
 # Getting Started
 
 > **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
